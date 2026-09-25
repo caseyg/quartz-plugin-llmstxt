@@ -1,6 +1,6 @@
 {
   "name": "quartz-plugin-llmstxt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Quartz emitter plugin that generates llms.txt, llms-full.txt, and .md mirrors for every page, following the llmstxt.org specification.",
   "type": "module",
   "license": "MIT",
