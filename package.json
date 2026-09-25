@@ -1,0 +1,121 @@
+{
+  "name": "quartz-plugin-llmstxt",
+  "version": "0.1.0",
+  "description": "Quartz emitter plugin that generates llms.txt, llms-full.txt, and .md mirrors for every page, following the llmstxt.org specification.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Casey Gollan",
+  "homepage": "https://github.com/caseyg/quartz-plugin-llmstxt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caseyg/quartz-plugin-llmstxt"
+  },
+  "keywords": [
+    "quartz",
+    "quartz-plugin",
+    "llmstxt",
+    "llms.txt",
+    "ai",
+    "agents"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier . --check",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run format && npm run test",
+    "release": "npm run build && changeset publish",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vfile": "^6.0.3"
+  },
+  "peerDependenciesMeta": {
+    "vfile": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@quartz-community/types": "github:quartz-community/types"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vfile": "^6.0.3",
+    "vitest": "^2.1.9",
+    "@changesets/cli": "^2.29.0"
+  },
+  "quartz": {
+    "name": "llmstxt",
+    "displayName": "LLMs.txt",
+    "category": "emitter",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 90,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "emitMarkdownMirrors": true,
+      "emitFullTxt": true,
+      "sections": {},
+      "optionalPrefixes": [],
+      "excludeFromIndex": [],
+      "description": ""
+    },
+    "optionSchema": {
+      "emitMarkdownMirrors": {
+        "type": "boolean"
+      },
+      "emitFullTxt": {
+        "type": "boolean"
+      },
+      "sections": {
+        "type": "object"
+      },
+      "optionalPrefixes": {
+        "type": "array"
+      },
+      "excludeFromIndex": {
+        "type": "array"
+      },
+      "description": {
+        "type": "string"
+      }
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
