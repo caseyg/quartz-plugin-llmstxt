@@ -58,7 +58,7 @@
     }
   },
   "dependencies": {
-    "@quartz-community/types": "github:quartz-community/types"
+    "@quartz-community/types": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
